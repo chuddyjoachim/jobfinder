@@ -12,6 +12,9 @@ export const globalStyles = StyleSheet.create({
   textPrimary: {
     color: '#4c4c4c',
   },
+  textBlack: {
+    color: '#191919',
+  },
   textGreen: {
     color: 'green',
   },

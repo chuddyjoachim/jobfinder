@@ -19,19 +19,30 @@ const HeadTitleBackButton: React.FC<HeadTitleBackButtonProps> = ({
         width: deviceWidth,
         display: 'flex',
         flexDirection: 'row',
-        alignContent: 'center',
+        alignItems: 'center',
       }}>
       {/* btn holder */}
       <View>
         <Pressable onPress={btnPress} style={{padding: 5}}>
           <Text>
-            <Ionicons name="chevron-back-sharp" size={35} style={globalStyles.textPrimary} />
+            <Ionicons
+              name="chevron-back-sharp"
+              size={35}
+              style={globalStyles.textPrimary}
+            />
           </Text>
         </Pressable>
       </View>
 
       {/* title header */}
-      <View style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
+      <View
+        style={{
+          flex: 1,
+          alignContent: 'center',
+          justifyContent: 'center',
+          position: 'absolute',
+          width: '100%'
+        }}>
         <View
           style={{
             width: '100%',
