@@ -1,14 +1,18 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import DestinationBottomDescription from '../../components/bottomDescription/DestinationBottomDescription';
+import DestinationMap from '../../components/map/DestinationMap';
 
 const DestinationController = () => {
-    return (
-        <View>
-            <Text>DestinationController page</Text>
-        </View>
-    )
-}
+  return (
+    <>
+      <DestinationMap />
+      <DestinationBottomDescription />
+    </>
+  );
+};
 
-export default DestinationController
+export default DestinationController;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
