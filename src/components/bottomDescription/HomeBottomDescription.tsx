@@ -8,8 +8,13 @@ import {deviceWidth, globalStyles} from '../../constants/constant';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import BlackButton from '../buttons/BlackButton';
+import {useNavigation} from '@react-navigation/core';
+import {StackParamList} from '../../root/navigator/MainNavigator';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {MainNavigationProp} from '../../types/navigation';
 
 const HomeBottomDescription = () => {
+  const navigation = useNavigation<MainNavigationProp>();
   return (
     <View style={styles.container}>
       <View style={styles.innerPadTop}>
@@ -39,6 +44,7 @@ const HomeBottomDescription = () => {
             </View>
 
             {/* action buttons */}
+            {/* time btn */}
             <View style={styles.optionNavContainer}>
               <View
                 style={[
@@ -47,7 +53,7 @@ const HomeBottomDescription = () => {
                 ]}>
                 <Pressable
                   onPress={() => {
-                    console.warn('cnri');
+                    navigation.navigate('TimeEstimate');
                   }}>
                   <View style={styles.optionNavTouch}>
                     <Text>
@@ -70,8 +76,13 @@ const HomeBottomDescription = () => {
                   </View>
                 </Pressable>
               </View>
+
+              {/* cash btn */}
               <View style={styles.optionNavBtn}>
-                <TouchableOpacity>
+                <Pressable
+                  onPress={() => {
+                    navigation.navigate('Payment');
+                  }}>
                   <View style={[styles.optionNavTouch]}>
                     <View
                       style={{
@@ -94,21 +105,27 @@ const HomeBottomDescription = () => {
                       style={globalStyles.textPrimary}
                     />
                   </View>
-                </TouchableOpacity>
+                </Pressable>
               </View>
             </View>
 
             {/* proceed */}
             <View
               style={{
-                marginVertical: 20,
+                marginTop: 20,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
               <View style={{width: '80%', maxWidth: 600}}>
-                <BlackButton radius={10}>
-                  <Text style={globalStyles.textWhite}>Proceed</Text>
+                <BlackButton
+                  onPress={() => {
+                    return navigation.navigate('Destination');
+                  }}
+                  radius={10}>
+                  <Text style={[globalStyles.textWhite, globalStyles.fontBold]}>
+                    Proceed
+                  </Text>
                 </BlackButton>
               </View>
             </View>
@@ -129,7 +146,7 @@ const styles = StyleSheet.create({
   },
   innerPadTop: {
     width: '100%',
-    height: 300,
+    // height: 300,
     backgroundColor: '#fff',
     borderTopStartRadius: 20,
     borderTopEndRadius: 20,
@@ -157,7 +174,7 @@ const styles = StyleSheet.create({
   descInputContainer: {
     height: 55,
     width: '100%',
-    backgroundColor: '#e9e9e9',
+    backgroundColor: '#DEF0ED',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
