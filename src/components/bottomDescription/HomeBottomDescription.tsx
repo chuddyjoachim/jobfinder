@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderTopStartRadius: 20,
     borderTopEndRadius: 20,
-    top: -20,
+    top: -30,
   },
   topStyleContainer: {
     width: '100%',
