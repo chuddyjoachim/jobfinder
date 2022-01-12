@@ -1,6 +1,7 @@
 import React from 'react';
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import Drawer from '../Drawer';
 import MapMarker from './MapMarker';
 
 const DestinationMap = () => {
@@ -12,6 +13,7 @@ const DestinationMap = () => {
     <>
       <StatusBar translucent backgroundColor={'transparent'} />
       <View style={styles.mapContainer}>
+        <Drawer />
         <MapView
           provider={PROVIDER_GOOGLE}
           style={{width: '100%', height: '100%'}}
@@ -24,14 +26,16 @@ const DestinationMap = () => {
           {/* adding maarkers */}
 
           <Marker coordinate={{latitude: mapLat, longitude: mapLng}}>
-            <View style={{
-              width: 50,
-              height: 50,
-              backgroundColor:'#000',
-              borderRadius: 1000,
-              borderWidth: 4,
-              borderColor: "#fff"
-            }}/>
+            <View
+              style={{
+                width: 50,
+                height: 50,
+                backgroundColor: '#000',
+                borderRadius: 1000,
+                borderWidth: 4,
+                borderColor: '#fff',
+              }}
+            />
           </Marker>
           <MapMarker latitude={mapLat + 0.00145} longitude={mapLng + 0.00411} />
         </MapView>

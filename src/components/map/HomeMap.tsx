@@ -10,6 +10,7 @@ import {
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import MapMarker from './MapMarker';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Drawer from '../Drawer';
 
 const HomeMap = () => {
   const [{mapLat, mapLng}, setLatLngMap] = React.useState({
@@ -20,23 +21,7 @@ const HomeMap = () => {
     <>
       <StatusBar translucent backgroundColor={'transparent'} />
       <View style={styles.mapContainer}>
-        <Pressable
-          onPress={() => {}}
-          style={{
-            width: 60,
-            height: 60,
-            borderRadius: 1000,
-            backgroundColor: '#fff',
-            position: 'absolute',
-            top: 40,
-            left: 25,
-            zIndex: 100,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Entypo name="menu" size={40} color="#191919" />
-        </Pressable>
+        <Drawer />
         <MapView
           provider={PROVIDER_GOOGLE}
           style={{width: '100%', height: '100%'}}
